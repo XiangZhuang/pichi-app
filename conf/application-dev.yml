@@ -1,0 +1,6 @@
+server:
+  port: 8081
+spring:
+  web:
+    resources:
+      static-locations: file:../webapp/build
