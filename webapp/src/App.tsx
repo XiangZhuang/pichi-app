@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./components/Header";
 import Pages from "./pages";
 import { ping } from "./common/api";
 
@@ -7,6 +8,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Pages />
     </div>
   );

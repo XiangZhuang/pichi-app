@@ -1,27 +1,37 @@
+@import '../../common/styles/colors';
+
 .home {
-  background-color: #f0eade;
+  background-color: $base-bg;
   min-height: 100vh;
-  padding-top: 80px;
   > .block {
     width: 100vw;
     overflow: hidden;
     align-items: center;
+    > .imgs {
+      width: 100%;
+      > .img {
+        position: relative;
+      }
+    }
     > .container {
       max-width: 1000px;
       width: calc(100% - 60px);
     }
   }
   > .block-01 {
+    padding-top: 80px;
+    background: no-repeat;
+    background-size: contain;
     > .imgs {
-      width: 100%;
-      > .img {
-        position: relative;
-      }
       > .img-01 {
         align-self: end;
         left: 50px;
         width: 60%;
         max-width: 800px;
+        @media only screen and (min-width: 1500px) {
+          align-self: start;
+          left: 50%;
+        }
         @media only screen and (max-width: 690px) {
           width: 70%;
         }
@@ -90,7 +100,7 @@
           width: 110px;
           height: 40px;
           border-radius: 20px;
-          background-color: #94b588;
+          background-color: $green;
           transition: background-color 0.15s;
           cursor: pointer;
           @media only screen and (max-width: 900px) {
@@ -110,6 +120,87 @@
         }
         > .btn:hover {
           background-color: #a9c89e;
+        }
+      }
+    }
+  }
+  > .wave {
+    width: 100%;
+    height: 10vw;
+    background: no-repeat;
+    background-size: cover;
+  }
+  > .block-02 {
+    background: $green no-repeat top left;
+    background-size: 700px;
+    padding-top: 30px;
+    > .imgs {
+      > .img-01 {
+        align-self: start;
+        left: -60px;
+        max-width: 800px;
+        width: 60%;
+        @media only screen and (min-width: 1500px) {
+          align-self: start;
+          left: calc(50% - 800px);
+        }
+      }
+      > .img-02 {
+        align-self: end;
+        width: 40%;
+        max-width: 500px;
+        margin-top: -100px;
+        @media only screen and (max-width: 690px) {
+          margin-top: -30px;
+        }
+      }
+    }
+    > .container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      > .title-container {
+        top: calc(15% + 30px);
+        align-items: flex-end;
+        @media only screen and (max-width: 690px) {
+          top: calc(10% + 30px);
+        }
+        @media only screen and (max-width: 500px) {
+          top: calc(5% + 30px);
+        }
+        > .title {
+          align-items: flex-end;
+          > p {
+            font-family: Noteworthy;
+            font-size: 60px;
+            color: $base-bg;
+            @media only screen and (max-width: 900px) {
+              font-size: 50px;
+            }
+            @media only screen and (max-width: 690px) {
+              font-size: 40px;
+            }
+            @media only screen and (max-width: 500px) {
+              font-size: 30px;
+            }
+          }
+        }
+        > .sub-title {
+          margin-top: 5px;
+          > p {
+            font-family: Noteworthy;
+            font-size: 30px;
+            color: $base-bg;
+            @media only screen and (max-width: 900px) {
+              font-size: 25px;
+            }
+            @media only screen and (max-width: 690px) {
+              font-size: 20px;
+            }
+            @media only screen and (max-width: 500px) {
+              font-size: 16px;
+            }
+          }
         }
       }
     }
