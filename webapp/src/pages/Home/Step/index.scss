@@ -1,0 +1,48 @@
+@import '../../../common/styles/colors';
+
+.step {
+  width: calc(33.3% - 20px);
+  align-items: center;
+  @media only screen and (max-width: 900px) {
+    width: 70%;
+  }
+  @media only screen and (max-width: 690px) {
+    margin-bottom: 50px;
+  }
+  > .circle {
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: $dark;
+    @media only screen and (max-width: 900px) {
+      width: 50px;
+      height: 50px;
+    }
+    > img {
+      height: 30px;
+    }
+  }
+  > .title {
+    margin-top: 10px;
+    > p {
+      font-size: 30px;
+      font-family: Noteworthy;
+      @media only screen and (max-width: 900px) {
+        font-size: 25px;
+      }
+    }
+  }
+  > .desc {
+    margin-top: 10px;
+    > p {
+      text-align: center;
+      font-size: 18px;
+      font-family: Noteworthy;
+      @media only screen and (max-width: 900px) {
+        font-size: 16px;
+      }
+    }
+  }
+}
