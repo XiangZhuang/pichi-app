@@ -2,33 +2,18 @@
 
 .home {
   min-height: 100vh;
-  > .block {
-    width: 100vw;
-    overflow: hidden;
-    align-items: center;
-    > .imgs {
-      width: 100%;
-      > .img {
-        position: relative;
-      }
-    }
-    > .container {
-      max-width: 1000px;
-      width: calc(100% - 60px);
-    }
-  }
   > .block-01 {
     padding-top: 80px;
     background: no-repeat;
     background-size: contain;
     > .imgs {
       > .img-01 {
-        align-self: end;
+        align-self: flex-end;
         left: 50px;
         width: 60%;
         max-width: 800px;
         @media only screen and (min-width: 1500px) {
-          align-self: start;
+          align-self: flex-start;
           left: 50%;
         }
         @media only screen and (max-width: 690px) {
@@ -114,12 +99,11 @@
     }
     > .imgs {
       > .img-01 {
-        align-self: start;
+        align-self: flex-start;
         left: -60px;
         max-width: 800px;
         width: 60%;
         @media only screen and (min-width: 1500px) {
-          align-self: start;
           left: calc(50% - 800px);
         }
         @media only screen and (max-width: 690px) {
@@ -127,7 +111,7 @@
         }
       }
       > .img-02 {
-        align-self: end;
+        align-self: flex-end;
         width: 40%;
         max-width: 500px;
         margin-top: -100px;

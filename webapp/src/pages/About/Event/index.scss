@@ -1,0 +1,82 @@
+.event {
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.15s;
+  background: white no-repeat right bottom;
+  @media only screen and (max-width: 690px) {
+    flex-direction: column;
+  }
+  > .img-container {
+    width: 50%;
+    min-height: 450px;
+    background: no-repeat center;
+    background-size: cover;
+    @media only screen and (max-width: 900px) {
+      width: 60%;
+    }
+    @media only screen and (max-width: 690px) {
+      width: 100%;
+      min-height: 300px;
+    }
+  }
+  > .content-container {
+    width: 50%;
+    padding: 50px;
+    @media only screen and (max-width: 900px) {
+      width: 40%;
+    }
+    @media only screen and (max-width: 690px) {
+      width: calc(100% - 80px);
+      padding: 40px;
+      padding-bottom: 150px;
+    }
+    @media only screen and (max-width: 500px) {
+      width: calc(100% - 60px);
+      padding: 30px;
+      padding-bottom: 150px;
+    }
+    > .year {
+      width: 100%;
+      > p {
+        font-family: Noteworthy;
+        font-size: 40px;
+        @media only screen and (max-width: 900px) {
+          font-size: 35px;
+        }
+      }
+    }
+    > .month-date {
+      margin-top: 5px;
+      width: 100%;
+      > p {
+        font-family: Noteworthy;
+        font-size: 28px;
+        @media only screen and (max-width: 900px) {
+          font-size: 24px;
+        }
+      }
+    }
+    > .descs {
+      margin-top: 15px;
+      width: 100%;
+      > .desc {
+        margin-top: 5px;
+        > p {
+          font-family: Noteworthy;
+          font-size: 18px;
+          @media only screen and (max-width: 900px) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.event:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.1);
+}

@@ -2,12 +2,29 @@
   margin: 0;
   font-family: Arial;
   color: #4d4d4d;
+  text-decoration: none;
 }
 
 div {
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.block {
+  width: 100vw;
+  overflow: hidden;
+  align-items: center;
+  > .imgs {
+    width: 100%;
+    > .img {
+      position: relative;
+    }
+  }
+  > .container {
+    max-width: 1000px;
+    width: calc(100% - 60px);
+  }
 }
 
 @font-face {

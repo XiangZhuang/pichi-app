@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./index.scss";
 
 const Header = () => {
@@ -6,13 +7,13 @@ const Header = () => {
       <div className="container">
         <div className="navs">
           <div className="nav">
-            <p>Home</p>
+            <Link to="/home">Home</Link>
           </div>
           <div className="nav">
-            <p>About</p>
+            <Link to="/about">My Journey</Link>
           </div>
           <div className="nav">
-            <p>Contact</p>
+            <Link to="/contact">Contact Me</Link>
           </div>
         </div>
       </div>

@@ -14,15 +14,16 @@
     > .navs {
       flex-direction: row;
       > .nav {
-        padding: 0 15px;
+        padding: 0 20px;
         cursor: pointer;
-        > p {
+        > a {
           font-size: 18px;
+          font-family: Noteworthy;
           transition: color 0.15s;
         }
       }
       > .nav:hover {
-        > p {
+        > a {
           color: #777;
         }
       }
