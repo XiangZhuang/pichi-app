@@ -8,7 +8,7 @@ import plant01 from "../../images/about-plant01.png";
 import plant02 from "../../images/about-plant02.png";
 import plant03 from "../../images/about-plant03.png";
 import Event from "./Event";
-import { createRef, useEffect, useRef, useState } from "react";
+import { createRef, useEffect, useRef } from "react";
 
 const events = [
   {
@@ -47,15 +47,17 @@ const About = () => {
     const scrollTop = window.scrollY;
     for (let i = 0; i < eventRefs.current.length; i += 1) {
       const ref = eventRefs.current[i] as any;
-      const offsetTop = ref.getBoundingClientRect().top + window.scrollY;
-      // @ts-ignore
-      const className = eventRefs.current[i].className;
-      if (
-        scrollTop > offsetTop - window.innerHeight &&
-        !className.split(" ").includes("appear")
-      ) {
+      if (!!ref) {
+        const offsetTop = ref.getBoundingClientRect().top + window.scrollY;
         // @ts-ignore
-        eventRefs.current[i].className = `${className} appear`;
+        const className = eventRefs.current[i].className;
+        if (
+          scrollTop > offsetTop - window.innerHeight &&
+          !className.split(" ").includes("appear")
+        ) {
+          // @ts-ignore
+          eventRefs.current[i].className = `${className} appear`;
+        }
       }
     }
   };
