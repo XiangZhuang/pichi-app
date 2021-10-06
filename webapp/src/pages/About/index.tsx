@@ -43,6 +43,15 @@ const About = () => {
   // @ts-ignore
   eventRefs.current = Array(events.length).map((_) => createRef());
 
+  const getAge = () => {
+    const birth = new Date("2021-04-19");
+    const today = new Date();
+    const years = today.getFullYear() - birth.getFullYear();
+    const dates = today.getDate() - birth.getDate();
+    const months = today.getMonth() - birth.getMonth() - (dates < 0 ? 1 : 0);
+    return `${years ? `${years}-Year ` : ""}${months}-Month`;
+  };
+
   const handleScroll = () => {
     const scrollTop = window.scrollY;
     for (let i = 0; i < eventRefs.current.length; i += 1) {
@@ -77,7 +86,7 @@ const About = () => {
         </div>
         <div className="container">
           <div className="title-container">
-            <p>Pichi is a 5-Month Old Bengal Cat</p>
+            <p>Pichi is a {getAge()} Old Bengal Cat</p>
           </div>
         </div>
         <div
