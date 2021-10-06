@@ -30,6 +30,23 @@
           color: #777;
         }
       }
+      @media only screen and (max-width: 690px) {
+        display: none;
+      }
+    }
+    > .mobile {
+      display: none;
+      @media only screen and (max-width: 690px) {
+        display: flex;
+      }
+      > .menu {
+        width: 40px;
+        cursor: pointer;
+        transition: 0.15s;
+      }
+      > .menu.rotate {
+        transform: rotate(90deg);
+      }
     }
   }
 }

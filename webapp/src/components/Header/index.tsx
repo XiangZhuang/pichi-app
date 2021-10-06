@@ -1,24 +1,28 @@
 import { Link, useHistory } from "react-router-dom";
 import "./index.scss";
-import { createRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import menuIcon from "../../images/icons/menu.png";
 
 const Header = () => {
-  const headerRef = createRef<HTMLDivElement>();
+  const headerRef = useRef<HTMLDivElement>();
   const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
-    const classes = headerRef.current!!.className.split(" ");
-    if (scrollTop > 80) {
-      if (!classes!!.includes("shadow")) {
-        classes!!.push("shadow");
+    if (headerRef.current) {
+      const classes = headerRef.current.className.split(" ");
+      if (scrollTop > 80) {
+        if (!classes!!.includes("shadow")) {
+          classes.push("shadow");
+        }
+      } else {
+        if (classes.includes("shadow")) {
+          classes.splice(classes.indexOf("shadow"), 1);
+        }
       }
-    } else {
-      if (classes!!.includes("shadow")) {
-        classes.splice(classes.indexOf("shadow"), 1);
-      }
+      headerRef.current.className = classes.join(" ");
     }
-    headerRef.current!!.className = classes!!.join(" ");
   };
 
   const handlePathChange = (pathname: string) => {
@@ -51,6 +55,7 @@ const Header = () => {
   }, [history]);
 
   return (
+    // @ts-ignore
     <div className="header" ref={headerRef}>
       <div className="container">
         <div className="navs">
@@ -62,6 +67,16 @@ const Header = () => {
           </div>
           <div className="nav">
             <Link to="/contact">Contact Me</Link>
+          </div>
+        </div>
+        <div className="mobile">
+          <div
+            className={`menu ${showMenu ? "rotate" : ""}`}
+            onClick={() => {
+              setShowMenu(!showMenu);
+            }}
+          >
+            <img src={menuIcon} alt="menu" />
           </div>
         </div>
       </div>
