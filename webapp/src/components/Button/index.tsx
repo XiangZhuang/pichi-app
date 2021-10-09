@@ -1,4 +1,5 @@
 import "./index.scss";
+import { useHistory } from "react-router-dom";
 
 const Button = (props: {
   text: string;
@@ -6,6 +7,7 @@ const Button = (props: {
   theme?: "default" | "round-radius" | "circle";
   variant?: "green" | "red";
   onClick?: () => {};
+  href?: string;
 }) => {
   const {
     text,
@@ -13,10 +15,21 @@ const Button = (props: {
     onClick,
     theme = "",
     variant = "green",
+    href,
   } = props;
 
+  const history = useHistory();
+
   return (
-    <div className={`btn ${className} ${theme} ${variant}`} onClick={onClick}>
+    <div
+      className={`btn ${className} ${theme} ${variant}`}
+      onClick={() => {
+        onClick?.();
+        if (href) {
+          history.push("/about");
+        }
+      }}
+    >
       <p>{text}</p>
       <div className="cover" />
     </div>

@@ -34,7 +34,7 @@ const Home = () => {
             <div className="sub-title">
               <p>- I'm just a baby catty</p>
             </div>
-            <Button theme="round-radius" text="My Journey" />
+            <Button theme="round-radius" text="My Journey" href="/about" />
           </div>
         </div>
       </div>
