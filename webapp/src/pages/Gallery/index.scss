@@ -1,0 +1,96 @@
+.gallery {
+  padding-top: 90px;
+  background: no-repeat top left 30px;
+  background-size: 800px;
+  > .block-01 > .container {
+    > .slider {
+      width: 100%;
+      overflow: hidden;
+      > .slider-container {
+        flex-direction: row;
+        justify-content: space-between;
+        transition: left 0.4s;
+        transition-timing-function: ease-in-out;
+        > .img {
+          border-radius: 10px;
+          height: 500px;
+          background: no-repeat center;
+          background-size: cover;
+          @media only screen and (max-width: 900px) {
+            height: 400px;
+          }
+          @media only screen and (max-width: 690px) {
+            height: 300px;
+          }
+        }
+      }
+      > .index {
+        top: -20px;
+        margin: 0 auto;
+        flex-direction: row;
+        justify-content: space-between;
+        > .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: lightgray;
+          cursor: pointer;
+          transition: background-color 0.15s;
+        }
+        > .dot.selected {
+          background-color: gray;
+        }
+      }
+    }
+  }
+  > .block-02 {
+    margin-top: 10px;
+    > .container {
+      align-items: center;
+      padding: 15px 0;
+      > .profile {
+        width: 150px;
+        height: 150px;
+        border-radius: 6px;
+        background: no-repeat center;
+        background-size: cover;
+        box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.15);
+      }
+      > .title {
+        margin-top: 10px;
+        > p {
+          font-family: Noteworthy;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+  > .block-03 {
+    margin-top: 60px;
+    > .container > .gallery-columns {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      > .gallery-column {
+        width: calc(100% / 3 - 5px);
+        padding: 10px 0;
+        > .img-block {
+          overflow: hidden;
+          border-radius: 6px;
+          margin-bottom: 7.5px;
+          cursor: pointer;
+          transition: 0.15s;
+          > img {
+            transition: 0.15s;
+          }
+        }
+        > .img-block:hover {
+          box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
+          > img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
