@@ -49,6 +49,7 @@ const Header = () => {
 
   useEffect(() => {
     return history.listen((location) => {
+      window.scrollTo(0, 0);
       handlePathChange(location.pathname);
     });
   }, [history]);
