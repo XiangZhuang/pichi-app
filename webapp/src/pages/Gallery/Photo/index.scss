@@ -1,0 +1,16 @@
+.photo {
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 7.5px;
+  cursor: pointer;
+  transition: 0.15s;
+  > img {
+    transition: 0.15s;
+  }
+}
+.photo:hover {
+  box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
+  > img {
+    transform: scale(1.1);
+  }
+}

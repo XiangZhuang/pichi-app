@@ -9,20 +9,7 @@ import profile from "../../images/gallery/profile.png";
 import line from "../../images/home-line01.png";
 import { useEffect, useRef, useState } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-
-const ImgBlock = (props: { img: string; id: number }) => {
-  const { img, id } = props;
-
-  return (
-    <div
-      className="img-block"
-      id={`img-block-${id}`}
-      style={{ background: `url(${img}) center no-repeat` }}
-    >
-      <img src={img} alt="Pichi Photo" />
-    </div>
-  );
-};
+import Photo from "./Photo";
 
 const headImgs = [
   {
@@ -72,7 +59,7 @@ const Gallery = () => {
           img.onload = function () {
             columns[columnIndex].insertAdjacentHTML(
               "beforeend",
-              renderToStaticMarkup(<ImgBlock img={photo.img} id={count} />)
+              renderToStaticMarkup(<Photo img={photo.img} id={count} />)
             );
             resolve();
           };
@@ -170,25 +157,6 @@ const Gallery = () => {
       </div>
     </div>
   );
-
-  // const generateColumns = () => {
-  //   const columns = $(".columns");
-  //   const width = $(window).outerWidth();
-  //   const currColNum = $(".column").length;
-  //   let columnNum = 1;
-  //   if (width > 769) {
-  //     columnNum = 3;
-  //   } else if (width > 500) {
-  //     columnNum = 2;
-  //   }
-  //   if (currColNum !== columnNum) {
-  //     columns.empty();
-  //     for (let i = 0; i < columnNum; i += 1) {
-  //       columns.append('<div class="column"></div>');
-  //     }
-  //     generateGallery();
-  //   }
-  // };
 };
 
 export default Gallery;

@@ -67,6 +67,7 @@ const Home = () => {
               theme="round-radius"
               variant="red"
               text="Look More at Me!"
+              href="/gallery"
             />
           </div>
         </div>

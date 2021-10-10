@@ -26,7 +26,7 @@ const Button = (props: {
       onClick={() => {
         onClick?.();
         if (href) {
-          history.push("/about");
+          history.push(href);
         }
       }}
     >

@@ -66,7 +66,7 @@
     }
   }
   > .block-03 {
-    margin-top: 60px;
+    margin-top: 30px;
     > .container > .gallery-columns {
       flex-direction: row;
       justify-content: space-between;
@@ -74,22 +74,6 @@
       > .gallery-column {
         width: calc(100% / 3 - 5px);
         padding: 10px 0;
-        > .img-block {
-          overflow: hidden;
-          border-radius: 6px;
-          margin-bottom: 7.5px;
-          cursor: pointer;
-          transition: 0.15s;
-          > img {
-            transition: 0.15s;
-          }
-        }
-        > .img-block:hover {
-          box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
-          > img {
-            transform: scale(1.1);
-          }
-        }
       }
     }
   }
