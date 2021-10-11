@@ -1,4 +1,4 @@
-import { Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "./index.scss";
 import { useEffect, useRef, useState } from "react";
 import menuIcon from "../../images/icons/menu.png";
@@ -61,7 +61,7 @@ const Header = () => {
         <div className="navs">
           {links.map((link) => (
             <div className="nav" key={link.link}>
-              <Link to={link.link}>{link.name}</Link>
+              <NavLink to={link.link}>{link.name}</NavLink>
             </div>
           ))}
         </div>
@@ -87,7 +87,7 @@ const Header = () => {
                 setShowMenu(false);
               }}
             >
-              <Link to={link.link}>{link.name}</Link>
+              <NavLink to={link.link}>{link.name}</NavLink>
             </div>
           ))}
         </div>

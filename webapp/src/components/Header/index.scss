@@ -1,5 +1,9 @@
 @import '../../common/styles/colors';
 
+a.active {
+  color: $green !important;
+}
+
 .header {
   position: fixed;
   top: 0;
