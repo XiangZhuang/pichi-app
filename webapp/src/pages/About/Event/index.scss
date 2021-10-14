@@ -83,12 +83,12 @@
 }
 
 .event.appear {
-  animation-name: appear;
+  animation-name: event-appear;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 
-@keyframes appear {
+@keyframes event-appear {
   from {
     opacity: 0;
     top: 60px;
