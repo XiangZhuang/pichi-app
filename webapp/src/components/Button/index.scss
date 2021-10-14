@@ -1,6 +1,6 @@
-@import '../../common/styles/colors';
+@import "../../common/styles/colors";
 
-.btn {
+.button {
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -12,7 +12,8 @@
   @media only screen and (max-width: 900px) {
     height: 30px;
   }
-  > p, a {
+  > p,
+  a {
     color: white;
     @media only screen and (max-width: 900px) {
       font-size: 14px;
@@ -33,20 +34,29 @@
     transition: opacity 0.15s;
   }
 }
-.btn:hover {
+.button:hover {
   > .cover {
     opacity: 1;
   }
 }
-.green {
+.button.green {
   background-color: $green;
 }
-.red {
+.button.red {
   background-color: $red;
 }
-.round-radius {
+.button.round-radius {
   border-radius: 20px;
   @media only screen and (max-width: 900px) {
     border-radius: 15px;
+  }
+}
+.button.large {
+  padding: 0 18px;
+  height: 48px;
+  border-radius: 10px;
+  > p,
+  a {
+    font-size: 18px;
   }
 }

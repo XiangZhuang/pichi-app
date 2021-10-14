@@ -8,6 +8,7 @@ const Button = (props: {
   variant?: "green" | "red";
   onClick?: () => {};
   href?: string;
+  size?: "small" | "large" | "medium";
 }) => {
   const {
     text,
@@ -16,13 +17,14 @@ const Button = (props: {
     theme = "",
     variant = "green",
     href,
+    size,
   } = props;
 
   const history = useHistory();
 
   return (
     <div
-      className={`btn ${className} ${theme} ${variant}`}
+      className={`button ${className} ${theme} ${variant} ${size}`}
       onClick={() => {
         onClick?.();
         if (href) {
