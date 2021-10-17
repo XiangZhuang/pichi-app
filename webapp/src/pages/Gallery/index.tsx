@@ -10,6 +10,8 @@ import line from "../../images/home-line01.png";
 import { useEffect, useRef, useState } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import Photo from "./Photo";
+import { useAppState } from "../../store";
+import { showPhotoModal } from "../../store/actions/modalActions";
 
 const headImgs = [
   {
@@ -39,6 +41,8 @@ const photos = [
 const Gallery = () => {
   const columnsRef = useRef<HTMLDivElement>(null);
   const [sliderIndex, setSliderIndex] = useState(0);
+  // @ts-ignore
+  const [, dispatch] = useAppState();
 
   const generateGallery = async () => {
     const columns = columnsRef.current?.children || [];
@@ -117,6 +121,9 @@ const Gallery = () => {
                   style={{
                     backgroundImage: `url(${img.img})`,
                     width: `calc(100% / ${headImgs.length})`,
+                  }}
+                  onClick={() => {
+                    showPhotoModal(dispatch, img.img);
                   }}
                 />
               ))}

@@ -5,7 +5,7 @@ const Photo = (props: { img: string; id: number }) => {
 
   return (
     <div
-      className="photo"
+      className="gallery-photo"
       id={`img-block-${id}`}
       style={{ background: `url(${img}) center no-repeat` }}
     >
