@@ -4,6 +4,9 @@ import upper from "../../images/about-upper01.png";
 import event01 from "../../images/about-event-01.png";
 import event02 from "../../images/about-event-02.png";
 import event03 from "../../images/about-event-03.png";
+import event04 from "../../images/about-event-04.png";
+import event05 from "../../images/about-event-05.png";
+import event06 from "../../images/about-event-06.png";
 import plant01 from "../../images/about-plant01.png";
 import plant02 from "../../images/about-plant02.png";
 import plant03 from "../../images/about-plant03.png";
@@ -32,8 +35,30 @@ const events = [
     descs: [
       "I arrived at my new home. The new environment was a bit frightening, so I hid in the dark space behind the mircowave oven for half a day, util my master tricked  me out by the sound of kitten video!",
     ],
-    date: new Date("2021-09-27"),
+    date: new Date("2021-09-05"),
     img: event03,
+    background: plant03,
+  },
+  {
+    descs: [
+      "It was my first day out. Traveling through the park during the night was truly scary...... At least I made my first step!",
+    ],
+    date: new Date("2021-09-11"),
+    img: event04,
+    background: plant01,
+  },
+  {
+    descs: [
+      "There is another creature in my home! That tiny thing stayed in a three-floor house. It is so small that I can slap it to death. My master seemed really worried when I found it. Why......",
+    ],
+    date: new Date("2021-09-18"),
+    img: event05,
+    background: plant02,
+  },
+  {
+    descs: ["I know it! I am actually a lion!!!"],
+    date: new Date("2021-10-08"),
+    img: event06,
     background: plant03,
   },
 ];

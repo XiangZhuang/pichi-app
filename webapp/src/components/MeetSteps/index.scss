@@ -1,0 +1,34 @@
+.meet-steps {
+  align-items: center;
+  > .title {
+    > p {
+      font-family: Noteworthy;
+      font-size: 40px;
+      @media only screen and (max-width: 900px) {
+        font-size: 35px;
+      }
+      @media only screen and (max-width: 690px) {
+        font-size: 30px;
+      }
+      @media only screen and (max-width: 500px) {
+        font-size: 20px;
+      }
+    }
+  }
+  > .sub-title {
+    margin-top: 10px;
+    opacity: 0.3;
+    > p {
+      font-size: 18px;
+    }
+  }
+  > .steps {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 60px;
+    @media only screen and (max-width: 690px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

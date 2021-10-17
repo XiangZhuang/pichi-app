@@ -2,6 +2,7 @@ import "./index.scss";
 import ContactItems from "../../components/ContactItems";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import MeetSteps from "../../components/MeetSteps";
 
 const Contact = () => {
   return (
@@ -47,6 +48,11 @@ const Contact = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="block block-02">
+        <div className="container">
+          <MeetSteps />
         </div>
       </div>
     </div>
