@@ -2,7 +2,6 @@ import { useAppState } from "../../store";
 import "./index.scss";
 
 const Modal = () => {
-  // @ts-ignore
   const [state, dispatch] = useAppState();
   const { show, photo } = state.modal;
 

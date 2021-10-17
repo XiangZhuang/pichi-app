@@ -10,6 +10,6 @@ export const AppStateProvider = (props: { children: ReactNode }) => {
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 
-export const useAppState = () => {
+export const useAppState: () => any = () => {
   return useContext(Context);
 };

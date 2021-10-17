@@ -7,8 +7,7 @@ import photo05 from "../../images/gallery/photo05.png";
 import photo06 from "../../images/gallery/photo06.png";
 import profile from "../../images/gallery/profile.png";
 import line from "../../images/home-line01.png";
-import { useEffect, useRef, useState } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import Photo from "./Photo";
 import { useAppState } from "../../store";
 import { showPhotoModal } from "../../store/actions/modalActions";
@@ -40,13 +39,16 @@ const photos = [
 
 const Gallery = () => {
   const columnsRef = useRef<HTMLDivElement>(null);
+  const [columns, setColumns] = useState<Array<Array<ReactNode>>>([[], [], []]);
   const [sliderIndex, setSliderIndex] = useState(0);
-  // @ts-ignore
   const [, dispatch] = useAppState();
 
-  const generateGallery = async () => {
-    const columns = columnsRef.current?.children || [];
-    const colNum = columnsRef.current?.children.length || 0;
+  const generateColumns = async () => {
+    const columns: Array<Array<ReactNode>> = Array.from(
+      Array(columnsRef.current?.children.length),
+      () => []
+    );
+    const colNum = columns.length;
     const column_imgs: Array<Array<number>> = [];
     for (let i = 0; i < colNum; i += 1) {
       column_imgs.push([]);
@@ -58,23 +60,32 @@ const Gallery = () => {
       const columnIndex = getShortestColumn(column_imgs);
       promises.push(
         new Promise<void>((resolve) => {
-          var img = new Image();
+          const img = new Image();
           img.src = photo.img;
           img.onload = function () {
-            columns[columnIndex].insertAdjacentHTML(
-              "beforeend",
-              renderToStaticMarkup(<Photo img={photo.img} id={count} />)
+            column_imgs[columnIndex].push(
+              img.height *
+                ((columnsRef.current?.children[columnIndex].clientWidth || 0) /
+                  img.width)
+            );
+            columns[columnIndex].push(
+              <Photo
+                img={photo.img}
+                id={count}
+                key={count}
+                onClick={() => {
+                  showPhotoModal(dispatch, photo.img);
+                }}
+              />
             );
             resolve();
           };
         })
       );
       await promises[promises.length - 1];
-      column_imgs[columnIndex].push(
-        document.getElementById(`img-block-${count}`)?.clientHeight || 0
-      );
       count += 1;
     }
+    setColumns(columns);
   };
 
   const getShortestColumn = (columns: Array<Array<number>>) => {
@@ -87,7 +98,7 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    generateGallery();
+    generateColumns();
   }, []);
 
   useEffect(() => {
@@ -156,9 +167,15 @@ const Gallery = () => {
       <div className="block block-03">
         <div className="container">
           <div className="gallery-columns" ref={columnsRef}>
-            <div className="gallery-column" />
-            <div className="gallery-column" />
-            <div className="gallery-column" />
+            <div className="gallery-column">
+              {columns[0].map((photo) => photo)}
+            </div>
+            <div className="gallery-column">
+              {columns[1].map((photo) => photo)}
+            </div>
+            <div className="gallery-column">
+              {columns[2].map((photo) => photo)}
+            </div>
           </div>
         </div>
       </div>
