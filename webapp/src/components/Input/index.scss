@@ -1,7 +1,14 @@
+@import "../../common/styles/colors";
+
 .input {
   padding: 15px 10px;
   font-size: 18px;
+  box-sizing: border-box;
   border: none;
   border-radius: 10px;
   color: gray;
+}
+
+.input.error {
+  border: 1px solid $red;
 }

@@ -6,8 +6,9 @@ const Button = (props: {
   className?: string;
   theme?: "default" | "round-radius" | "circle";
   variant?: "green" | "red";
-  onClick?: () => {};
+  onClick?: () => void;
   href?: string;
+  disabled?: boolean;
   size?: "small" | "large" | "medium";
 }) => {
   const {
@@ -18,17 +19,22 @@ const Button = (props: {
     variant = "green",
     href,
     size,
+    disabled,
   } = props;
 
   const history = useHistory();
 
   return (
     <div
-      className={`button ${className} ${theme} ${variant} ${size}`}
+      className={`button ${className} ${theme} ${variant} ${size} ${
+        disabled ? "disabled" : ""
+      }`}
       onClick={() => {
-        onClick?.();
-        if (href) {
-          history.push(href);
+        if (!disabled) {
+          onClick?.();
+          if (href) {
+            history.push(href);
+          }
         }
       }}
     >

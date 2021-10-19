@@ -3,8 +3,39 @@ import ContactItems from "../../components/ContactItems";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import MeetSteps from "../../components/MeetSteps";
+import { useState } from "react";
+import { sentContactForm } from "../../common/utils/email";
 
 const Contact = () => {
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [addr, setAddr] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [isValidating, setValidating] = useState<boolean>(false);
+
+  const onSubmit = () => {
+    setValidating(true);
+    sentContactForm({ name, email, phone, addr, message }).then(() => {
+      setValidating(false);
+      clearForm();
+    });
+  };
+
+  const clearForm = () => {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setAddr("");
+    setMessage("");
+  };
+
+  const isContactFormValid = () => {
+    return !!name && !!email && !!message;
+  };
+
+  const emptyValidator = (value?: string) => !isValidating || !!value;
+
   return (
     <div className="contact">
       <div className="block block-01">
@@ -22,28 +53,58 @@ const Contact = () => {
             <div className="message">
               <div className="row">
                 <div className="col">
-                  <Input placeholder="Name" />
+                  <Input
+                    placeholder="Name *"
+                    value={name}
+                    onChange={setName}
+                    validator={emptyValidator}
+                  />
                 </div>
                 <div className="col">
-                  <Input placeholder="Phone" />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col">
-                  <Input placeholder="Email" />
-                </div>
-                <div className="col">
-                  <Input placeholder="Address" />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col">
-                  <Input multiLine rows={7} placeholder="Message" />
+                  <Input
+                    placeholder="Phone"
+                    value={phone}
+                    onChange={setPhone}
+                  />
                 </div>
               </div>
               <div className="row">
                 <div className="col">
-                  <Button text={"Send Message"} size="large" />
+                  <Input
+                    placeholder="Email *"
+                    value={email}
+                    onChange={setEmail}
+                    validator={emptyValidator}
+                  />
+                </div>
+                <div className="col">
+                  <Input
+                    placeholder="Address"
+                    value={addr}
+                    onChange={setAddr}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col">
+                  <Input
+                    multiLine
+                    rows={7}
+                    placeholder="Message *"
+                    value={message}
+                    onChange={setMessage}
+                    validator={emptyValidator}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col">
+                  <Button
+                    text={"Send Message"}
+                    size="large"
+                    disabled={!isContactFormValid()}
+                    onClick={onSubmit}
+                  />
                 </div>
               </div>
             </div>

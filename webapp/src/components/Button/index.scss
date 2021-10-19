@@ -60,3 +60,10 @@
     font-size: 18px;
   }
 }
+.button.disabled {
+  cursor: default;
+  > .cover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
