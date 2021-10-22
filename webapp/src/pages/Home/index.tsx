@@ -8,7 +8,6 @@ import downWave from "../../images/home-down01.png";
 import footprints from "../../images/home-footprints.png";
 import line02 from "../../images/home-line02.png";
 import Button from "../../components/Button";
-import MeetSteps from "../../components/MeetSteps";
 
 const Home = () => {
   return (
@@ -75,11 +74,6 @@ const Home = () => {
           backgroundImage: `url(${downWave})`,
         }}
       />
-      <div className="block block-03">
-        <div className="container">
-          <MeetSteps />
-        </div>
-      </div>
     </div>
   );
 };

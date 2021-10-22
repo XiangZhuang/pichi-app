@@ -1,5 +1,6 @@
 import "./index.scss";
 import { useHistory } from "react-router-dom";
+import Loading from "../Loading";
 
 const Button = (props: {
   text: string;
@@ -10,6 +11,7 @@ const Button = (props: {
   href?: string;
   disabled?: boolean;
   size?: "small" | "large" | "medium";
+  loading?: boolean;
 }) => {
   const {
     text,
@@ -20,6 +22,7 @@ const Button = (props: {
     href,
     size,
     disabled,
+    loading,
   } = props;
 
   const history = useHistory();
@@ -38,7 +41,8 @@ const Button = (props: {
         }
       }}
     >
-      <p>{text}</p>
+      {loading ? <Loading color="white" size={25} /> : null}
+      <p className={`${loading ? "hide" : "show"}`}>{text}</p>
       <div className="cover" />
     </div>
   );
