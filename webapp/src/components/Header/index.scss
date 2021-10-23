@@ -1,4 +1,4 @@
-@import '../../common/styles/colors';
+@import "../../common/styles/colors";
 
 a.active {
   color: $green !important;
@@ -49,6 +49,9 @@ a.active {
         align-self: flex-end;
         cursor: pointer;
         transition: 0.15s;
+        > img {
+          width: 100%;
+        }
       }
       > .menu.rotate {
         transform: rotate(90deg);
