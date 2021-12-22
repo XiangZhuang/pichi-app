@@ -103,6 +103,7 @@ const Gallery = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      // 试试函数式更新state来避免闭包陷阱
       setSliderIndex((sliderIndex + 1) % headImgs.length);
     }, 3000);
     return () => clearTimeout(timer);
